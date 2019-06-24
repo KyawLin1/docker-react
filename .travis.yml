@@ -1,0 +1,9 @@
+sudo: required
+services: 
+  - docker
+
+before_install:
+  - docker build -t kyawlin/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run kyawlin/docker-react npm run test -- --coverage
